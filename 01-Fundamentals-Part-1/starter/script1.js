@@ -1,3 +1,4 @@
+/* Coding Challenge #2 */
 let mark_Weight = 78;
 let john_Weight = 92;
 let mark_Height = 1.69;
