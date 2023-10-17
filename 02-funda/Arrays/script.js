@@ -3,6 +3,7 @@ const elementToAdd = 6;
 const index = 2; // Index where you want to add the element
 
 const newArray = array.slice(0, index).concat(elementToAdd, array.slice(index));
+
 console.log(newArray); // [1, 2, 6, 3, 4, 5]
 
 const friends = ["Neville", "Amelly", "Anille"];
@@ -85,3 +86,36 @@ for (let i = 0; i < 5; i++) {
 	colorsD.unshift("color" + i); // Adds "color4", "color3", ..., "color0"
 }
 console.log(colorsD);
+
+//Removing Last Elements: Returns the removed element
+const popped = colorsD.pop();
+console.log(colorsD);
+console.log(popped);
+
+//Removing First Elements:
+const shifted = colorsD.shift();
+console.log(colorsD);
+console.log(shifted);
+
+//indexof
+console.log(colorsD.indexOf("color2")); // 1
+console.log(colorsD.indexOf("color4")); // -1
+
+//includes Returns true or false if the element is in the array
+console.log(colorsD.includes("color2")); // true
+console.log(colorsD.includes("color4")); // false
+
+//Splice to Add
+console.log(colorsD.splice(1, 0, "color4")); // Add ["color4"] at index 1 , 0 elements removed
+console.log(colorsD);
+
+//splice to remove
+console.log(colorsD.splice(1, 1)); // Remove ["color4"] at index 1 , 1 element removed
+console.log(colorsD);
+
+const nArray = [1, 2, 3, 4, 5];
+const ElementToAdd = 6;
+const Index = 2;
+const NewArray = nArray.splice(Index, 0, ElementToAdd);
+console.log(NewArray); //empty array because No element was removed
+console.log(nArray); // [1, 2, 6 ,3, 4, 5]
