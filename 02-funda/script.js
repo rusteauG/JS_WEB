@@ -122,16 +122,143 @@ const calcTip = function (bill) {
 };
 let bill = [100, 200, 400];
 const tip = [calcTip(bill[0]), calcTip(bill[1]), calcTip(bill[2])];
+const totalAmounts = [bill[0] + tip[0], bill[1] + tip[1], bill[2] + tip[2]];
 
 console.log(
-	`The bill#1 was $${bill[0]}, the tip was $${tip[0]}, and the total value ${
-		tip[0] + bill[0]
-	}   
-	The bill#2 was $${bill[1]}, the tip was $${tip[1]}, and the total value ${
-		tip[1] + bill[1]
-	}	
-	The bill#3 was $${bill[2]}, the tip was $${tip[2]}, and the total value ${
-		tip[2] + bill[2]
-	}
+	`The bill#1 was $${bill[0]}, the tip was $${tip[0]}, and the total value ${totalAmounts[0]}   
+	The bill#2 was $${bill[1]}, the tip was $${tip[1]}, and the total value ${totalAmounts[1]}	
+	The bill#3 was $${bill[2]}, the tip was $${tip[2]}, and the total value ${totalAmounts[2]}
 	`
 );
+
+console.log(`   The bill#1 was $${bill[0]
+	.toFixed(2)
+	.padEnd(10, " ")}, the tip was $${tip[0]
+	.toFixed(2)
+	.padEnd(10, " ")}, and the total value ${totalAmounts[0]
+	.toFixed(2)
+	.padEnd(10, " ")}
+   The bill#2 was $${bill[1].toFixed(2).padEnd(10, " ")}, the tip was $${tip[1]
+	.toFixed(2)
+	.padEnd(10, " ")}, and the total value ${totalAmounts[1]
+	.toFixed(2)
+	.padEnd(10, " ")}
+   The bill#3 was $${bill[2].toFixed(2).padEnd(10, " ")}, the tip was $${tip[2]
+	.toFixed(2)
+	.padEnd(10, " ")}, and the total value ${totalAmounts[2]
+	.toFixed(2)
+	.padEnd(10, " ")}`);
+
+//objects
+
+const jonas = {
+	firstName: "Jonas",
+	lastName: "Schmedtmann",
+	age: 2037 - 1991,
+	job: "teacher",
+	friends: ["Michael", "Peter", "Steven"],
+};
+
+console.log(jonas);
+//DOT NOTATION
+console.log(jonas.lastName);
+//bracket notation
+console.log(jonas["lastName"]);
+//WE CAN USE AN EXPRESSION IN BRACKET NOTATION
+const namekey = "Name";
+console.log(jonas["first" + namekey]);
+console.log(jonas["last" + namekey]);
+
+/*const interest = prompt(
+	"what do you want to know about Jonas?,choose between firstName, lastName, age, job, friends"
+);
+console.log(jonas.interest); //undefined ,  there's no property called interest
+console.log(jonas[interest]); // brackets notation , accept an expression so this works
+
+//if a value doesn't exist, it will return undefined
+if (jonas[interest]) {
+	console.log(jonas[interest]);
+} else {
+	console.log(
+		"Wrong request! Please choose between firstName, lastName, age, job, friends"
+	);
+}
+*/
+jonas.location = "Portugal";
+jonas["twitter"] = "@jonasschmedtmann";
+console.log(jonas);
+
+const numFriends = jonas.friends.length;
+const bestFriend = jonas.friends[0];
+console.log(
+	jonas.firstName +
+		" has " +
+		numFriends +
+		", and his best friend is called " +
+		bestFriend
+);
+
+//Object Methods
+const jonas1 = {
+	firstName: "Jonas",
+	lastName: "Schmedtmann",
+	birthYear: 1990,
+	job: "teacher",
+	friends: ["Michael", "Peter", "Steven"],
+	hasDriversLicense: false,
+
+	//this is Reference the jonas1 object
+	// calcaulate_Age: function () {
+	// return 2037 - this.birthYear;
+	// },
+	//Add a Property age using this
+	calcaulate_Age: function () {
+		this.age = 2037 - this.birthYear;
+		return this.age;
+	},
+	getSummary: function () {
+		return `${this.firstName} is a ${this.calcaulate_Age()} year old ${
+			this.job
+		}, and he has ${this.hasDriversLicense ? "a" : "no"} driver's license`;
+	},
+};
+
+console.log(jonas1.age + 1);
+console.log(jonas1.age);
+console.log(jonas1.age);
+console.log(jonas1.getSummary());
+
+//code challenge#3
+const mark = {
+	fullname: "Mark Miller",
+	mass: 78,
+	height: 1.69,
+
+	calcBMI: function () {
+		this.BMI = this.mass / this.height ** 2;
+		return this.BMI.toFixed(2);
+	},
+};
+const john = {
+	fullname: "John Smith",
+	mass: 92,
+	height: 1.95,
+
+	calcBMI: function () {
+		this.BMI = this.mass / this.height ** 2;
+		return this.BMI.toFixed(2);
+	},
+};
+
+const str =
+	mark.calcBMI() > john.calcBMI()
+		? mark.fullname +
+		  " BMI (" +
+		  mark.calcBMI() +
+		  ") is higher than " +
+		  john.fullname +
+		  " BMI (" +
+		  john.calcBMI() +
+		  ")!"
+		: john.fullname + "BMI (" + john.calcBMI() + "is higher than mark's BMI";
+console.log(str);
