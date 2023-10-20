@@ -1,4 +1,4 @@
-"use strict";
+`use strict`;
 for (let rep = 1; rep <= 10; rep++) {
 	console.log(`Repetion ${rep}`);
 }
@@ -89,7 +89,7 @@ const tip = [calcTip(bill[0]), calcTip(bill[1]), calcTip(bill[2])];
 const totalAmounts = [bill[0] + tip[0], bill[1] + tip[1], bill[2] + tip[2]];
 
 
-*/
+*/ //My Solution
 const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
 const tips = [];
 const totals = [];
@@ -107,7 +107,19 @@ const calcTip = function (bills) {
 calcTip(bills);
 console.log(totals);
 
-//------------------DONE!--------------------------------
+//------------------DONE!--------------------------------Better Solution
+const totals1 = [];
+const tips1 = [];
+const calcTip2 = function (bills) {
+	return bills >= 50 && bills <= 300 ? bills * 0.15 : bills * 0.2;
+};
+
+for (let i = 0; i < bills.length; i++) {
+	const tip = calcTip2(bills[i]);
+	tips1.push(tip);
+	totals1.push(tip + bills[i]);
+}
+console.log(bills, tips1, totals1);
 
 //BONUS
 const arr = [10, 20, 30, 40, 50, 60, 70, 80, 90];
@@ -119,3 +131,5 @@ const calcAvg = (arr) => {
 	return sum / arr.length;
 };
 console.log(calcAvg(arr));
+
+("hello");
