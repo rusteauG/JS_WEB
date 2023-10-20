@@ -105,3 +105,31 @@ const revArray = function (num) {
   return reversedString;
 };
 console.log(revArray(1243));
+
+//? max min
+const array = [1, 2, 3, 4, 5];
+const max = Math.max(...array);
+const min = Math.min(...array);
+console.log(max); // Output: 5
+console.log(min); // Output: 1
+
+//!edge case
+/*
+In this example, an empty array is passed to Math.max and Math.min. Because there are no elements in the array, the maximum and minimum values are set to -Infinity and Infinity, respectively.*/
+
+const array1 = [];
+const max1 = Math.max(...array1);
+const min1 = Math.min(...array1);
+console.log(max1); // Output: -Infinity
+console.log(min1); // Output: Infinity
+
+/*Array with NaN values:
+In this example, an array with some NaN values is passed to Math.max and Math.min. Because NaN is not a valid number, the maximum and minimum values are set to NaN.
+
+In both of these examples, Math.max and Math.min handle the edge cases more efficiently than custom code would.
+*/
+const array2 = [1, 2, NaN, 4, 5];
+const max2 = Math.max(...array2);
+const min2 = Math.min(...array2);
+console.log(max2); // Output: NaN
+console.log(min2); // Output: NaN
