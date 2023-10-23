@@ -133,3 +133,107 @@ const max2 = Math.max(...array2);
 const min2 = Math.min(...array2);
 console.log(max2); // Output: NaN
 console.log(min2); // Output: NaN
+
+//Given an array of numbers, return the sum of all of the positives ones.
+const sumOfPositives = array => {
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] > 0) {
+      sum += array[i];
+    }
+  }
+  return sum;
+};
+const arr = [1, -2, 3, -4, 5];
+console.log(sumOfPositives(arr));
+//Given an array of temperatures, return an array converted to Fahrenheit.
+const convertToFahrenheit = array => {
+  let convertedArray = [];
+  for (let i = 0; i < array.length; i++) {
+    convertedArray.push((array[i] * 9) / 5 + 32);
+  }
+  return convertedArray;
+};
+const arr1 = [1, 2, 3, 4, 5];
+console.log(convertToFahrenheit(arr1));
+
+//Given an array of temperatures of one day, calculate the amplitude of the temperature variation.Keep in mind that sometimes there might be a sensor error.
+//?Understand the problem 1)What is temp amplitude?
+//!Diff between hihest and lowest temp
+const temp = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5];
+const calculateTempAmplitude = function (temps) {
+  // Filter out non-numeric values
+  const filteredTemps = temps.filter(temp => typeof temp === 'number');
+
+  // Check if there are any valid temperatures
+  if (filteredTemps.length === 0) {
+    return 'No valid temperatures found';
+  }
+
+  const maxTemp = Math.max(...filteredTemps);
+  const minTemp = Math.min(...filteredTemps);
+
+  const amplitude = maxTemp - minTemp;
+  return amplitude;
+};
+
+const tempAmplitude = calculateTempAmplitude(temp);
+console.log(`Temp Amplitude: ${tempAmplitude}`);
+
+//Using Loops to calculate the amplitude of the temperature variation.
+const temp2 = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5];
+const calculateTempAmplitude2 = function (temps) {
+  let maxTemp = temps[0];
+  let minTemp = temps[0];
+  for (let i = 0; i < temps.length; i++) {
+    const curTemp = temps[i];
+    if (typeof curTemp !== 'number') continue;
+    if (curTemp > maxTemp) maxTemp = curTemp;
+    if (curTemp < minTemp) minTemp = curTemp;
+  }
+  const amplitude = maxTemp - minTemp;
+  return amplitude;
+};
+const tempAmplitude2 = calculateTempAmplitude2(temp2);
+console.log(`Temp Amplitude: ${tempAmplitude2}`);
+
+//Array .push , Adds zero or more elements to the end of an array and returns the new length of the array.
+const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+const count = animals.push('zebra');
+console.log(count);
+console.log(animals);
+animals.push('lion', 'tiger');
+console.log(animals);
+
+//concat()
+const animals1 = ['cow', 'horse', 'sheep'];
+const animals2 = ['cat', 'dog'];
+const allAnimals = animals.concat(animals1.concat(animals2));
+console.log(allAnimals);
+
+//convert temp to celsius
+const measureKelvin = function () {
+  const measurement = {
+    type: 'temp',
+    unit: 'celsius',
+    value: 10, //prompt('Enter a temperature in Celsius:'),
+  };
+  console.log(measurement);
+  console.table(measurement);
+  const Kelvin = parseInt(measurement.value) + 273;
+  return Kelvin;
+};
+console.log(measureKelvin());
+
+//!Code Chanllenge #1
+/*Given Array of forecasted max temperatures, the thermometer displays a string with the given temperatures. Example: [17, 21, 23] will print "... 17oC in 1 days ... 21oC in 2 days ... 23oC in 3 days ...".*/
+
+const forecast = [17, 21, 23];
+const printForecast = function (arr) {
+  let str = '';
+  for (let i = 0; i < arr.length; i++) {
+    str += `${arr[i]}\u00B0C in ${i + 1} days ... `;
+  }
+  console.log(`... ${str}...`);
+};
+printForecast(forecast);
