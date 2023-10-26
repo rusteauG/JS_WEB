@@ -3,6 +3,8 @@
 let score = 20;
 let message = '';
 let highscore = 0;
+let gameOver = false; // Add a flag to track if the game is over
+
 document.querySelector('.again').addEventListener('click', function () {
   score = 20;
   message = '';
@@ -21,10 +23,19 @@ document.querySelector('.again').addEventListener('click', function () {
 
   element.style.padding = '0';
   element.style.border = '0';
+  // Reset the game over flag
+  gameOver = false;
+  // Generate a new secret number for the new game
+  secretNumber = Math.trunc(Math.random() * 20) + 1;
 });
 
 const secretNumber = Math.trunc(Math.random() * 20) + 1;
 document.querySelector('.check').addEventListener('click', function () {
+  if (gameOver) {
+    // If the game is over, don't process further guesses
+    return;
+  }
+
   const guess = Number(document.querySelector('.guess').value);
   //when there is no input
   if (!guess) {
@@ -46,6 +57,9 @@ document.querySelector('.check').addEventListener('click', function () {
     if (score > highscore) {
       highscore = score;
       document.querySelector('.highscore').textContent = highscore;
+
+      // Set the game over flag to true
+      gameOver = true;
     }
 
     //when guess is too high
