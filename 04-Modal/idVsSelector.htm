@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>querySelector vs getElementById</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <!-- Include the Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      /* Apply the Google Font to the body text */
+      body {
+        font-family: 'Open Sans', sans-serif;
+      }
+      /* Style the label */
+      label {
+        font-size: 16px; /* Set the font size */
+        color: #007bff; /* Text color */
+        margin-bottom: 5px; /* Add space below the label */
+        display: block; /* Display on a new line for better spacing */
+        font-weight: bold; /* Bold text */
+      }
+      /* Add a border to the input element */
+      input {
+        border: 2px solid #007bff; /* Blue border */
+        padding: 10px; /* Add some padding for spacing */
+        border-radius: 5px; /* Rounded corners */
+      }
+
+      /* Change the border color when the input is focused (highlight) */
+      input:focus {
+        border-color: #ff5733; /* Red border when focused */
+        background-color: lightyellow;
+      }
+
+      /* Style the submit button */
+      button[type='submit'] {
+        background-color: #007bff; /* Blue background color */
+        color: #fff; /* White text color */
+        padding: 10px 20px; /* Padding for spacing */
+        border: none; /* Remove the default button border */
+        border-radius: 5px; /* Rounded corners */
+        cursor: pointer; /* Show a pointer cursor on hover */
+        transition: background-color 0.3s; /* Smooth background color transition */
+
+        /* Add a shadow to the button for depth */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Change the background color when the button is hovered */
+      button[type='submit']:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+      }
+
+      .container {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        background-color: #eee;
+      }
+
+      .centered-element {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="myElement">This is an element with ID</div>
+    <div class="myClass">This is a div with class</div>
+    &times;
+    <button class="close-modal">&times;</button>
+    <button class="close-modal">✖</button>
+    <button class="close-modal">❌</button>
+    <button class="close-modal">❎</button>
+    <p>
+      In this example, getElementById selects the element with the specified id,
+      and querySelector selects the element with the specified id or class,
+      depending on the selector used.
+    </p>
+    <p>
+      getElementById: This method is specifically used to select an element by
+      its id attribute, which is expected to be unique on a page. It returns a
+      reference to the element with the specified id. Example:
+      <em>const element = document.getElementById('myElement');</em>
+    </p>
+    <p>
+      In this case, you select an element with the id of "myElement."
+      querySelector: This method allows you to select elements using CSS-style
+      selectors, which can target elements based on various criteria, such as
+      tag name, class, attribute, or other properties. It returns the first
+      matching element that it finds or null if no match is found. Example:
+
+      <em> const element = document.querySelector('.myClass'); </em>
+      In this case, you select the first element with the class "myClass." You
+      can use more complex selectors, such as '#myElement' to select an element
+      by its id, or 'input[name="username"]' to select an input element with the
+      attribute name set to "username."
+    </p>
+
+    <form>
+      <label for="username"> <i class="fas fa-user"></i> Username: </label>
+      <input
+        type="text"
+        name="username"
+        id="username"
+        placeholder="Enter your username"
+      />
+      <button type="submit">Submit</button>
+    </form>
+    <div class="container">
+      <div class="centered-element">Center Me</div>
+    </div>
+
+    <script>
+      const usernameInput = document.querySelector('input[name="username"]');
+      usernameInput.value = 'Eg.  🍗Nevillek';
+
+      console.log('Selected Input Element:', usernameInput);
+
+      const elementById = document.getElementById('myElement');
+      const elementByQuerySelector = document.querySelector('#myElement');
+      const elementByClass = document.querySelector('.myClass');
+
+      console.log('Element by ID:', elementById);
+      console.log('Element by QuerySelector (ID):', elementByQuerySelector);
+      console.log('Element by QuerySelector (Class):', elementByClass);
+    </script>
+  </body>
+</html>
