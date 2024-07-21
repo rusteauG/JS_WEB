@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #myElement {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="myElement">Hello,World!</div>
+    <button id="makeBold">Bold</button>
+    <button id="makeNormal">Normal</button>
+    <script>
+      var element = document.getElementById('myElement');
+      console.log(element, element.textContent);
+      element.textContent = 'Bye,World';
+      // Selecting the element by its id using querySelector
+      document
+        .querySelector('#makeBold')
+        .addEventListener('click', function () {
+          document.querySelector('#myElement').style.fontWeight = 'bold';
+        });
+      document
+        .querySelector('#makeNormal')
+        .addEventListener('click', function () {
+          document.querySelector('#myElement').style.fontWeight = '100';
+        });
+      //or document.querySelector('#myElement').style.fontWeight = 'bold';
+    </script>
+  </body>
+</html>

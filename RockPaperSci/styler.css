@@ -1,0 +1,148 @@
+@import url("https://fonts.googleapis.com/css?family=Asap:400,500,700|Black+Ops+One|Faster+One|Bungee+Shade|Londrina+Solid");
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #252631;
+}
+header {
+  background-color: white;
+  padding: 20px;
+}
+header > h1 {
+  color: #25727e;
+  text-align: center;
+  font-family: Londrina Solid, cursive;
+  font-size: 60px;
+}
+.score-board {
+  border: 2px solid white;
+  width: 250px;
+  margin: 20px auto;
+  color: white;
+  font-size: 46px;
+  border-radius: 4px;
+  padding: 15px 20px;
+  font-family: Asap;
+  position: relative;
+}
+
+.badge {
+  background-color: #e25840;
+  color: white;
+  font-size: 18px;
+  padding: 2px 10px;
+  font-family: Asap;
+}
+#user-label {
+  position: absolute;
+  top: 30px;
+  left: -25px;
+}
+#comp-label {
+  position: absolute;
+  top: 30px;
+  right: -30px;
+}
+
+.result {
+  font-size: 40px;
+  color: white;
+  margin-bottom: 30px;
+  text-align: center;
+  font-family: Asap;
+}
+.result > p {
+  text-align: center;
+  font-family: Asap;
+  font-weight: bold;
+}
+.choices {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.choice {
+  border: 5px solid white;
+  padding: 20px;
+  border-radius: 100px;
+  transition: all 0.7s ease;
+}
+.choice:hover {
+  cursor: pointer;
+  background: #e25840;
+}
+
+.choice.bounce {
+  animation: bounce 0.5s;
+}
+.score {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+#action-message {
+  text-align: center;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  font-family: Asap, sans-serif;
+  margin: 10px 0;
+}
+
+/* Container for centering the button */
+.button-container {
+  display: flex;
+  justify-content: center;
+  text-align: center; /* Center horizontally */
+  margin-top: 5px; /* Add space above the button */
+}
+
+/* Button styles */
+#try-again {
+  background-color: #e25840; /* Background color */
+  color: white; /* Text color */
+  font-size: 20px; /* Font size */
+  font-family: Asap, sans-serif; /* Font family */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 20px; /* Padding inside the button */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transition for background color and transform */
+}
+
+/* Hover effect */
+#try-again:hover {
+  background-color: #c4bb39; /* Darker shade of background color */
+}
+
+/* Active effect */
+#try-again:active {
+  transform: scale(0.95); /* Slightly scale down the button */
+}
+
+/* Focus effect */
+#try-again:focus {
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5); /* Add a subtle shadow on focus */
+}
