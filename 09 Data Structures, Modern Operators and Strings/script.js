@@ -40,7 +40,7 @@ main = three;
 three = temp;
 console.log(three, main);
 // instead of using let as above, no need for temp var in the middle
-[main, three] = [three, main];
+[main, three] = [three, main]; //mutaing the var
 console.log(three, main); //Switch back!
 
 // Eg
