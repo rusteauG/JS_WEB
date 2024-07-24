@@ -12,20 +12,45 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-
-
   // function to order Food
   order: function (startIndex, mainIndex) {
     return [this.starterMenu[startIndex], this.mainMenu[mainIndex]];
   },
+
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`Here is your pasta with ${ing1}, ${ing2}, ${ing3}`);
+  },
 };
 
+const ingredients = [
+  prompt("Let's make pasta! Ingredients 1?"),
+  prompt('Ingredients 2?'),
+  prompt('Ingredients 3?'),
+];
+console.log(ingredients);
 
+restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
+// or
+restaurant.orderPasta(...ingredients);
+
+// New on ES6 ... Work with objects
+// new object
+const newRestaurant = { ...restaurant, founder: 'Guiseppe' };
+console.log(newRestaurant);
+
+// copie object
+const copiedRestaurant = { ...restaurant };
+console.log(copiedRestaurant);
+
+
+copiedRestaurant.name = 'Ristorante Roma';
+console.log(copiedRestaurant.name);
+console.log(restaurant.name);
+
+// ---------------------
 
 const [stater, mainCourse] = restaurant.order(2, 0);
-console.log(stater,mainCourse);
-
- 
+console.log(stater, mainCourse);
 
 const [category1, category2] = restaurant['categories'];
 const [cat1, cat2] = restaurant.categories;
@@ -77,17 +102,12 @@ console.log(num1, rest);
 //     open: 0, // Open 24 hours
 //     close: 24,
 
-
 const nested = [2, 4, [5, 6]];
-const [i,, j] = nested;
-console.log(typeof i, typeof j,j);
+const [i, , j] = nested;
+console.log(typeof i, typeof j, j);
 console.log(j[0], j[1]);
 
 const [a, , [l, k]] = nested;
 console.log(a, l, k);
-
-
-
-
 
 // destructure Objects
