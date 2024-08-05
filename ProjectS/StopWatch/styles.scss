@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+/* Variabes */
+$orange: #ffa600;
+$grey: #f3f3f3;
+$white: #fff;
+$base-color: $orange;
+$body-font: "Press Start 2P";
+
+/* Mixin's */
+@mixin transition {
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+@mixin corners($radius) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  -khtml-border-radius: $radius;
+}
+
+body {
+  font-family: $body-font;
+  background: linear-gradient(to top left, $base-color, #332711);
+  height: calc(100vh - 3rem);
+}
+.wrapper {
+  width: 800px;
+  margin: 30px auto;
+  color: $white;
+  text-align: center;
+}
+h1,
+h2,
+h3 {
+  font-family: $body-font;
+  font-weight: 100;
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+p {
+  font-size: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+#seconds,
+#tens {
+  font-size: 3rem;
+}
+
+button {
+  @include corners(5px);
+  background: $base-color;
+  color: $white;
+  border: solid 1px $white;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 2.2em;
+  padding: 18px 10px;
+  width: 180px;
+  margin: 10px;
+  outline: none;
+  &:hover {
+    @include transition;
+    background: $white;
+    border: solid 1px $white;
+    color: $base-color;
+  }
+}
